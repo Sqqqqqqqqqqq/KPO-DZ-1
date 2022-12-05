@@ -73,7 +73,7 @@ public class playerVsPlayer {
             } else if (input.equals("/help")) {
                 Runner.printOptions();
                 continue;
-            } else if (input.length() < 3) {
+            } else if (input.length() != 3) {
                 System.out.println("Некорректный ввод\nПопробуйте еще раз:");
                 continue;
             }
