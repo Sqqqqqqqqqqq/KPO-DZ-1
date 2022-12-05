@@ -6,6 +6,7 @@ public class playerVsPlayer {
     public static ArrayList<Integer> possibleMovesY = new ArrayList<>();
     public static int xMax = 0;
     public static int yMax = 0;
+
     public static void randomSetColors(Gamer gamer1, Gamer gamer2) {
         Random random = new Random();
         if (random.nextInt(100) > 50) {
@@ -50,11 +51,13 @@ public class playerVsPlayer {
 
     static int inputChecker(Field field, Gamer gamer) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ход делает: " + (char) gamer.getColor());
         getMoves(field, gamer);
         if (possibleMovesX.isEmpty()) {
+            clearPossibleMoves();
+            field.turn = !field.turn;
             return 0;
         }
+        System.out.println("Ход делает: " + (char) gamer.getColor());
         field.printScore();
         field.printField();
         printMoves();
@@ -136,7 +139,5 @@ public class playerVsPlayer {
         if (field.getWhiteScore() > field.getBlackScore()) System.out.println("Победили белые!");
         else if (field.getWhiteScore() < field.getBlackScore()) System.out.println("Победили черные!");
         else System.out.println("Ничья!");
-        System.out.println("Главное меню:");
-        Runner.printOptions();
     }
 }
