@@ -67,8 +67,6 @@ public class playerVsPlayer {
                 field.clone(oldField);
                 return 2;
             } else if (input.equals("/endGame")) {
-                System.out.println("Главное меню:");
-                Runner.printOptions();
                 return 1;
             } else if (input.equals("/help")) {
                 Runner.printOptions();
